@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { CartProvider } from './context/CartContext.jsx';
+import MainLayout from './MainLayout.jsx';
+import HomePage from './pages/HomePage/HomePage.jsx';
+import CategoryPage from './pages/CategoryPage/CategoryPage.jsx';
+import CartPage from './pages/CartPage/CartPage.jsx';
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage.jsx';
+import BranchesPage from './pages/BranchesPage/BranchesPage.jsx';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "category/:categoryName", element: <CategoryPage /> },
+      { path: "cart", element: <CartPage /> },
+      { path: "checkout", element: <CheckoutPage /> },
+      { path: "branches", element: <BranchesPage /> },
+    ]
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   );
 }
 
