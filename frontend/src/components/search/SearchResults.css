@@ -1,0 +1,23 @@
+.search-results-container {
+  padding: 20px;
+}
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 20px;
+}
+
+.no-results {
+  text-align: center;
+  color: #888;
+  padding: 40px 0;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .search-results-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
