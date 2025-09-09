@@ -1,22 +1,22 @@
 import React from "react";
 import { useCart } from "../../context/CartContext";
 import toast from "react-hot-toast";
+import { useIntl, FormattedMessage } from "react-intl";
 import "./MenuItem.css";
 
 function MenuItem({ item, onShowDetails }) {
   const { addToCart } = useCart();
+  const intl = useIntl();
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
     addToCart(item);
-    toast.success(`تمت إضافة "${item.name}" إلى السلة`);
+    toast.success(intl.formatMessage({ id: "item_added_to_cart" }, { itemName: item.name }));
   };
 
   const handleShowDetails = (e) => {
     e.stopPropagation();
-    if (onShowDetails) {
-      onShowDetails(item);
-    }
+    if (onShowDetails) onShowDetails(item);
   };
 
   return (
@@ -31,14 +31,16 @@ function MenuItem({ item, onShowDetails }) {
         {item.details && (
           <div className="item-details-overlay">
             <button className="details-btn" onClick={handleShowDetails}>
-              تفاصيل
+              <FormattedMessage id="details" />
             </button>
           </div>
         )}
       </div>
       <div className="item-info">
         <h3 className="item-name">{item.name}</h3>
-        <p className="item-price">{item.price.toFixed(2)} ج.م</p>
+        <p className="item-price">
+          {item.price.toFixed(2)} {intl.formatMessage({ id: "egp" })}
+        </p>
       </div>
     </div>
   );

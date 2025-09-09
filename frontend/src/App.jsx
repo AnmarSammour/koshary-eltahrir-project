@@ -1,15 +1,12 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { CartProvider } from './context/CartContext.jsx';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { CartProvider } from "./context/CartContext.jsx";
+import MainLayout from "./MainLayout.jsx";
+import HomePage from "./pages/HomePage/HomePage.jsx";
+import CategoryPage from "./pages/CategoryPage/CategoryPage.jsx";
+import CartPage from "./pages/CartPage/CartPage.jsx";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.jsx";
+import BranchesPage from "./pages/BranchesPage/BranchesPage.jsx";
 
-// Import components and pages
-import MainLayout from './MainLayout.jsx';
-import HomePage from './pages/HomePage/HomePage.jsx';
-import CategoryPage from './pages/CategoryPage/CategoryPage.jsx';
-import CartPage from './pages/CartPage/CartPage.jsx';
-import CheckoutPage from './pages/CheckoutPage/CheckoutPage.jsx';
-import BranchesPage from './pages/BranchesPage/BranchesPage.jsx';
-
-// Definition of paths
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,9 +16,9 @@ const router = createBrowserRouter([
       { path: "category/:categoryName", element: <CategoryPage /> },
       { path: "cart", element: <CartPage /> },
       { path: "checkout", element: <CheckoutPage /> },
-      { path: "branches", element: <BranchesPage /> },
+      { path: "branches", element: <BranchesPage /> }
     ]
-  },
+  }
 ]);
 
 function App() {

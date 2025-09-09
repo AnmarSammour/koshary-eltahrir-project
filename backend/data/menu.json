@@ -2,54 +2,83 @@
   {
     "id": 1,
     "name": "علبة تحرير",
+    "name_ar": "علبة تحرير",
+    "name_en": "Tahrir Box",
+    "details": "الصلصة: (1 باكيت) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)",
+    "details_ar": "الصلصة: (1 باكيت) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)",
+    "details_en": "Sauce: (1 pack) / Dakka: (1 pack) / Chili: (1 pack) / Fried onions: (1 pack) / Spoons: (1)",
     "price": 33.0,
     "image": "http://localhost:3000/assets/1.png",
-    "category": "الكشري",
-    "details": "الصلصة: (1 باكيت  ) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)"
+    "category": "الكشري"
   },
   {
     "id": 2,
     "name": "علبة توب",
+    "name_ar": "علبة توب",
+    "name_en": "Top Box",
+    "details": "الصلصة: (1 باكيت) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)",
+    "details_ar": "الصلصة: (1 باكيت) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)",
+    "details_en": "Sauce: (1 pack) / Dakka: (1 pack) / Chili: (1 pack) / Fried onions: (1 pack) / Spoons: (1)",
     "price": 42.0,
     "image": "http://localhost:3000/assets/2.png",
-    "category": "الكشري",
-    "details": "الصلصة: (1 باكيت  ) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)"
+    "category": "الكشري"
   },
   {
     "id": 3,
     "name": "علبة لارج",
+    "name_ar": "علبة لارج",
+    "name_en": "Large Box",
+    "details": "الصلصة: (1 باكيت) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)",
+    "details_ar": "الصلصة: (1 باكيت) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)",
+    "details_en": "Sauce: (1 pack) / Dakka: (1 pack) / Chili: (1 pack) / Fried onions: (1 pack) / Spoons: (1)",
     "price": 50.0,
     "image": "http://localhost:3000/assets/3.png",
-    "category": "الكشري",
-    "details": "الصلصة: (1 باكيت  ) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)"
+    "category": "الكشري"
   },
   {
     "id": 4,
     "name": "علبة كينج",
+    "name_ar": "علبة كينج",
+    "name_en": "King Box",
+    "details": "الصلصة: (1 باكيت) / الدقة: (2 باكيت) / الشطة: (2 باكيت) / التقلية: (2 باكيت) / المعالق: (1)",
+    "details_ar": "الصلصة: (1 باكيت) / الدقة: (2 باكيت) / الشطة: (2 باكيت) / التقلية: (2 باكيت) / المعالق: (1)",
+    "details_en": "Sauce: (1 pack) / Dakka: (2 packs) / Chili: (2 packs) / Fried onions: (2 packs) / Spoons: (1)",
     "price": 65.0,
     "image": "http://localhost:3000/assets/4.png",
-    "category": "الكشري",
-    "details": "الصلصة: (1 باكيت  ) / الدقة: (2 باكيت) / الشطة: (2 باكيت) / التقلية: (2 باكيت) / المعالق: (1)"
+    "category": "الكشري"
   },
   {
     "id": 5,
     "name": "ميجا فويل لـ 3 أفراد",
+    "name_ar": "ميجا فويل لـ 3 أفراد",
+    "name_en": "Mega Foil for 3",
+    "details": "الصلصة: (4 باكيت) / الدقة: (4 باكيت) / الشطة: (4 باكيت) / التقلية: (3 باكيت) / المعالق: (4)",
+    "details_ar": "الصلصة: (4 باكيت) / الدقة: (4 باكيت) / الشطة: (4 باكيت) / التقلية: (3 باكيت) / المعالق: (4)",
+    "details_en": "Sauce: (4 packs) / Dakka: (4 packs) / Chili: (4 packs) / Fried onions: (3 packs) / Spoons: (4)",
     "price": 140.0,
     "image": "http://localhost:3000/assets/5.png",
-    "category": "الكشري",
-    "details": "الصلصة: (4 باكيت  ) / الدقة: (4 باكيت) / الشطة: (4 باكيت) / التقلية: (3 باكيت) / المعالق: (4)"
+    "category": "الكشري"
   },
   {
     "id": 6,
     "name": "فاميلي فويل لـ 5 أفراد",
+    "name_ar": "فاميلي فويل لـ 5 أفراد",
+    "name_en": "Family Foil for 5",
+    "details": "الصلصة: (6 باكيت) / الدقة: (8 باكيت) / الشطة: (8 باكيت) / التقلية: (6 باكيت) / المعالق: (6)",
+    "details_ar": "الصلصة: (6 باكيت) / الدقة: (8 باكيت) / الشطة: (8 باكيت) / التقلية: (6 باكيت) / المعالق: (6)",
+    "details_en": "Sauce: (6 packs) / Dakka: (8 packs) / Chili: (8 packs) / Fried onions: (6 packs) / Spoons: (6)",
     "price": 225.0,
     "image": "http://localhost:3000/assets/6.png",
-    "category": "الكشري",
-    "details": "الصلصة: (6 باكيت  ) / الدقة: (8 باكيت) / الشطة: (8 باكيت) / التقلية: (6 باكيت) / المعالق: (6)"
+    "category": "الكشري"
   },
   {
     "id": 7,
     "name": "باكت تقلية",
+    "name_ar": "باكت تقلية",
+    "name_en": "Fried Onions Pack",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 12.0,
     "image": "http://localhost:3000/assets/7.png",
     "category": "الإضافات"
@@ -57,6 +86,11 @@
   {
     "id": 8,
     "name": "باكت دقة",
+    "name_ar": "باكت دقة",
+    "name_en": "Dakka Pack",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 2.0,
     "image": "http://localhost:3000/assets/8.png",
     "category": "الإضافات"
@@ -64,6 +98,11 @@
   {
     "id": 9,
     "name": "باكت شطة",
+    "name_ar": "باكت شطة",
+    "name_en": "Chili Pack",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 2.0,
     "image": "http://localhost:3000/assets/9.png",
     "category": "الإضافات"
@@ -71,6 +110,11 @@
   {
     "id": 10,
     "name": "حمص",
+    "name_ar": "حمص",
+    "name_en": "Chickpeas",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 7.0,
     "image": "http://localhost:3000/assets/10.png",
     "category": "الإضافات"
@@ -78,6 +122,11 @@
   {
     "id": 11,
     "name": "صلصة زيادة",
+    "name_ar": "صلصة زيادة",
+    "name_en": "Extra Sauce",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 7.0,
     "image": "http://localhost:3000/assets/11.png",
     "category": "الإضافات"
@@ -85,6 +134,11 @@
   {
     "id": 12,
     "name": "عدس",
+    "name_ar": "عدس",
+    "name_en": "Lentils",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 7.0,
     "image": "http://localhost:3000/assets/12.png",
     "category": "الإضافات"
@@ -92,6 +146,11 @@
   {
     "id": 13,
     "name": "مياه غازية PET",
+    "name_ar": "مياه غازية PET",
+    "name_en": "Soft Drink PET",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 15.0,
     "image": "http://localhost:3000/assets/13.png",
     "category": "المشروبات"
@@ -99,6 +158,11 @@
   {
     "id": 14,
     "name": "ميرندا تفاح",
+    "name_ar": "ميرندا تفاح",
+    "name_en": "Mirinda Apple",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 20.0,
     "image": "http://localhost:3000/assets/14.png",
     "category": "المشروبات"
@@ -106,6 +170,11 @@
   {
     "id": 15,
     "name": "ميرندا برتقال",
+    "name_ar": "ميرندا برتقال",
+    "name_en": "Mirinda Orange",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 20.0,
     "image": "http://localhost:3000/assets/15.png",
     "category": "المشروبات"
@@ -113,6 +182,11 @@
   {
     "id": 16,
     "name": "سفن اب دايت",
+    "name_ar": "سفن اب دايت",
+    "name_en": "7UP Diet",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 20.0,
     "image": "http://localhost:3000/assets/16.png",
     "category": "المشروبات"
@@ -120,6 +194,11 @@
   {
     "id": 17,
     "name": "سفن اب",
+    "name_ar": "سفن اب",
+    "name_en": "7UP",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 20.0,
     "image": "http://localhost:3000/assets/17.png",
     "category": "المشروبات"
@@ -127,6 +206,11 @@
   {
     "id": 18,
     "name": "بيبسي دايت",
+    "name_ar": "بيبسي دايت",
+    "name_en": "Pepsi Diet",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 20.0,
     "image": "http://localhost:3000/assets/18.png",
     "category": "المشروبات"
@@ -134,6 +218,11 @@
   {
     "id": 19,
     "name": "بيبسي",
+    "name_ar": "بيبسي",
+    "name_en": "Pepsi",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 20.0,
     "image": "http://localhost:3000/assets/19.png",
     "category": "المشروبات"
@@ -141,6 +230,11 @@
   {
     "id": 20,
     "name": "مياه معدنية",
+    "name_ar": "مياه معدنية",
+    "name_en": "Mineral Water",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 10.0,
     "image": "http://localhost:3000/assets/20.png",
     "category": "المشروبات"
@@ -148,6 +242,11 @@
   {
     "id": 21,
     "name": "مهلبية",
+    "name_ar": "مهلبية",
+    "name_en": "Milk Pudding",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 25.0,
     "image": "http://localhost:3000/assets/21.png",
     "category": "الحلويات"
@@ -155,6 +254,11 @@
   {
     "id": 22,
     "name": "أرز باللبن",
+    "name_ar": "أرز باللبن",
+    "name_en": "Rice Pudding",
+    "details": "",
+    "details_ar": "",
+    "details_en": "",
     "price": 25.0,
     "image": "http://localhost:3000/assets/22.png",
     "category": "الحلويات"

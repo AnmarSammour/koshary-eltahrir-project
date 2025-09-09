@@ -4,6 +4,8 @@ import backgroundImage from "./assets/background.jpeg";
 import SearchBar from "./components/search/SearchBar";
 import SearchResults from "./components/search/SearchResults";
 import { Toaster } from "react-hot-toast";
+import LanguageSwitcher from "./components/LanguageSwitcher";
+import { useLocale } from "./i18n";
 import "./MainLayout.css";
 
 function MainLayout() {
@@ -12,19 +14,20 @@ function MainLayout() {
   const [searchQuery, setSearchQuery] = useState("");
   const [allItems, setAllItems] = useState([]);
   const location = useLocation();
-
+  const { locale } = useLocale();
+  
   useEffect(() => {
-    fetch("http://localhost:3000/api/menu")
+    fetch(`http://localhost:3000/api/menu?lang=${locale}`)
       .then((res) => res.json())
       .then((data) => setAllItems(data))
       .catch((error) =>
         console.error("Failed to fetch all items for search:", error)
       );
-  }, []);
+  }, [locale]);
 
   const filteredResults = searchQuery
     ? allItems.filter((item) =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+        (item.name || "").toLowerCase().includes(searchQuery.toLowerCase())
       )
     : [];
 
@@ -47,10 +50,7 @@ function MainLayout() {
       <Toaster
         position="bottom-center"
         toastOptions={{
-          style: {
-            background: "#333",
-            color: "#fff",
-          },
+          style: { background: "#333", color: "#fff" },
         }}
       />
 
@@ -71,9 +71,14 @@ function MainLayout() {
 
       <div className="left-pane" style={leftPaneStyle}>
         <div className="top-buttons">
+          <LanguageSwitcher />
           {!isSearchMode && (
             <>
-              <button className="action-btn" onClick={handleSearchClick}>
+              <button
+                className="action-btn"
+                onClick={handleSearchClick}
+                aria-label="Search"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

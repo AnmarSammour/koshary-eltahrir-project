@@ -1,28 +1,24 @@
-import React, { useState } from 'react';
-import MenuItem from '../menu/MenuItem';
-import DetailsModal from '../UI/DetailsModal';
-import './SearchResults.css';
+import React, { useState } from "react";
+import { FormattedMessage } from "react-intl";
+import MenuItem from "../menu/MenuItem";
+import DetailsModal from "../UI/DetailsModal";
+import "./SearchResults.css";
 
 function SearchResults({ results }) {
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const handleShowDetails = (item) => {
-    setSelectedItem(item);
-  };
-
-  const handleCloseDetails = () => {
-    setSelectedItem(null);
-  };
+  const handleShowDetails = (item) => setSelectedItem(item);
+  const handleCloseDetails = () => setSelectedItem(null);
 
   if (results.length === 0) {
-    return <p className="no-results">.لا توجد نتائج بحث مطابقة</p>;
+    return <p className="no-results"><FormattedMessage id="no_search_results" /></p>;
   }
 
   return (
     <>
       <div className="search-results-container">
         <div className="search-results-grid">
-          {results.map(item => (
+          {results.map((item) => (
             <MenuItem key={item.id} item={item} onShowDetails={handleShowDetails} />
           ))}
         </div>

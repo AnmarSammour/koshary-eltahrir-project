@@ -2,23 +2,25 @@ import React from "react";
 import "./CategoryFilters.css";
 
 function CategoryFilters({ categories, activeCategory, setActiveCategory }) {
-  const handleFilterClick = (category) => {
-    setActiveCategory(category);
-    const section = document.getElementById(`category-${category}`);
+  const handleFilterClick = (value) => {
+    setActiveCategory(value);
+    const section = document.getElementById(`category-${value}`);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   return (
     <div className="filters-container">
-      {categories.map((category) => (
+      {categories.map((c) => (
         <button
-          key={category}
-          className={`filter-button ${activeCategory === category ? 'active' : ''}`}
-          onClick={() => handleFilterClick(category)}
+          key={c.value}
+          className={`filter-button ${
+            activeCategory === c.value ? "active" : ""
+          }`}
+          onClick={() => handleFilterClick(c.value)}
         >
-          {category}
+          {c.label}
         </button>
       ))}
     </div>
