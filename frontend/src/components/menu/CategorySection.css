@@ -1,0 +1,40 @@
+/* src/components/CategorySection.css */
+
+.category-section {
+  padding: 24px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.category-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.more-link {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.items-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  margin-bottom: 12px;
+  scroll-behavior: smooth;
+
+  .items-carousel .menu-item-card {
+    flex-shrink: 0;
+    width: 150px;
+  }
+}

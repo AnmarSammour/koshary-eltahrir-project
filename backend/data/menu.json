@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "علبة تحرير",
+    "price": 33.0,
+    "image": "http://localhost:3000/assets/1.png",
+    "category": "الكشري",
+    "details": "الصلصة: (1 باكيت  ) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)"
+  },
+  {
+    "id": 2,
+    "name": "علبة توب",
+    "price": 42.0,
+    "image": "http://localhost:3000/assets/2.png",
+    "category": "الكشري",
+    "details": "الصلصة: (1 باكيت  ) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)"
+  },
+  {
+    "id": 3,
+    "name": "علبة لارج",
+    "price": 50.0,
+    "image": "http://localhost:3000/assets/3.png",
+    "category": "الكشري",
+    "details": "الصلصة: (1 باكيت  ) / الدقة: (1 باكيت) / الشطة: (1 باكيت) / التقلية: (1 باكيت) / المعالق: (1)"
+  },
+  {
+    "id": 4,
+    "name": "علبة كينج",
+    "price": 65.0,
+    "image": "http://localhost:3000/assets/4.png",
+    "category": "الكشري",
+    "details": "الصلصة: (1 باكيت  ) / الدقة: (2 باكيت) / الشطة: (2 باكيت) / التقلية: (2 باكيت) / المعالق: (1)"
+  },
+  {
+    "id": 5,
+    "name": "ميجا فويل لـ 3 أفراد",
+    "price": 140.0,
+    "image": "http://localhost:3000/assets/5.png",
+    "category": "الكشري",
+    "details": "الصلصة: (4 باكيت  ) / الدقة: (4 باكيت) / الشطة: (4 باكيت) / التقلية: (3 باكيت) / المعالق: (4)"
+  },
+  {
+    "id": 6,
+    "name": "فاميلي فويل لـ 5 أفراد",
+    "price": 225.0,
+    "image": "http://localhost:3000/assets/6.png",
+    "category": "الكشري",
+    "details": "الصلصة: (6 باكيت  ) / الدقة: (8 باكيت) / الشطة: (8 باكيت) / التقلية: (6 باكيت) / المعالق: (6)"
+  },
+  {
+    "id": 7,
+    "name": "باكت تقلية",
+    "price": 12.0,
+    "image": "http://localhost:3000/assets/7.png",
+    "category": "الإضافات"
+  },
+  {
+    "id": 8,
+    "name": "باكت دقة",
+    "price": 2.0,
+    "image": "http://localhost:3000/assets/8.png",
+    "category": "الإضافات"
+  },
+  {
+    "id": 9,
+    "name": "باكت شطة",
+    "price": 2.0,
+    "image": "http://localhost:3000/assets/9.png",
+    "category": "الإضافات"
+  },
+  {
+    "id": 10,
+    "name": "حمص",
+    "price": 7.0,
+    "image": "http://localhost:3000/assets/10.png",
+    "category": "الإضافات"
+  },
+  {
+    "id": 11,
+    "name": "صلصة زيادة",
+    "price": 7.0,
+    "image": "http://localhost:3000/assets/11.png",
+    "category": "الإضافات"
+  },
+  {
+    "id": 12,
+    "name": "عدس",
+    "price": 7.0,
+    "image": "http://localhost:3000/assets/12.png",
+    "category": "الإضافات"
+  },
+  {
+    "id": 13,
+    "name": "مياه غازية PET",
+    "price": 15.0,
+    "image": "http://localhost:3000/assets/13.png",
+    "category": "المشروبات"
+  },
+  {
+    "id": 14,
+    "name": "ميرندا تفاح",
+    "price": 20.0,
+    "image": "http://localhost:3000/assets/14.png",
+    "category": "المشروبات"
+  },
+  {
+    "id": 15,
+    "name": "ميرندا برتقال",
+    "price": 20.0,
+    "image": "http://localhost:3000/assets/15.png",
+    "category": "المشروبات"
+  },
+  {
+    "id": 16,
+    "name": "سفن اب دايت",
+    "price": 20.0,
+    "image": "http://localhost:3000/assets/16.png",
+    "category": "المشروبات"
+  },
+  {
+    "id": 17,
+    "name": "سفن اب",
+    "price": 20.0,
+    "image": "http://localhost:3000/assets/17.png",
+    "category": "المشروبات"
+  },
+  {
+    "id": 18,
+    "name": "بيبسي دايت",
+    "price": 20.0,
+    "image": "http://localhost:3000/assets/18.png",
+    "category": "المشروبات"
+  },
+  {
+    "id": 19,
+    "name": "بيبسي",
+    "price": 20.0,
+    "image": "http://localhost:3000/assets/19.png",
+    "category": "المشروبات"
+  },
+  {
+    "id": 20,
+    "name": "مياه معدنية",
+    "price": 10.0,
+    "image": "http://localhost:3000/assets/20.png",
+    "category": "المشروبات"
+  },
+  {
+    "id": 21,
+    "name": "مهلبية",
+    "price": 25.0,
+    "image": "http://localhost:3000/assets/21.png",
+    "category": "الحلويات"
+  },
+  {
+    "id": 22,
+    "name": "أرز باللبن",
+    "price": 25.0,
+    "image": "http://localhost:3000/assets/22.png",
+    "category": "الحلويات"
+  }
+]
