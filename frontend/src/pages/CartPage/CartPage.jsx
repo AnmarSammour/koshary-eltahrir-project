@@ -1,30 +1,37 @@
+// src/pages/CartPage/CartPage.jsx
+
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import "./CartPage.css";
 
 function CartPage() {
   const { cartItems, addToCart, removeFromCart, totalPrice } = useCart();
   const navigate = useNavigate();
+  const intl = useIntl();
 
   const handleCheckout = () => navigate("/checkout");
 
+  // Empty cart design
   if (cartItems.length === 0) {
     return (
       <div className="cart-page-container empty-cart">
         <header className="cart-page-header">
           <Link to="/" className="back-link" aria-label="Back">
-            <span className="back-arrow">→</span>
+            <span className="back-arrow">
+              {intl.locale === "ar" ? "←" : "→"}
+            </span>
           </Link>
           <h1>
             <FormattedMessage id="shopping_cart" />
           </h1>
         </header>
         <div className="empty-cart-content">
-          <p>
+          <div className="empty-cart-icon">🛒</div>
+          <h2>
             <FormattedMessage id="empty_cart_message" />
-          </p>
+          </h2>
           <Link to="/" className="start-shopping-btn">
             <FormattedMessage id="start_shopping" />
           </Link>
@@ -33,17 +40,17 @@ function CartPage() {
     );
   }
 
+  // Filled cart design
   return (
     <div className="cart-page-container">
       <header className="cart-page-header">
         <Link to="/" className="back-link" aria-label="Back">
-          <span className="back-arrow">→</span>
+          <span className="back-arrow">{intl.locale === "ar" ? "←" : "→"}</span>
         </Link>
         <h1>
           <FormattedMessage id="shopping_cart" />
         </h1>
       </header>
-
       <div className="cart-items-list">
         {cartItems.map((item) => (
           <div key={item.id} className="cart-item">
@@ -56,9 +63,21 @@ function CartPage() {
               </span>
             </div>
             <div className="cart-item-quantity-controls">
-              <button onClick={() => addToCart(item)}>+</button>
+              <button
+                className="quantity-btn"
+                onClick={() => removeFromCart(item.id)}
+                aria-label="decrease"
+              >
+                −
+              </button>
               <span>{item.quantity}</span>
-              <button onClick={() => removeFromCart(item.id)}>−</button>
+              <button
+                className="quantity-btn"
+                onClick={() => addToCart(item)}
+                aria-label="increase"
+              >
+                +
+              </button>
             </div>
           </div>
         ))}
@@ -73,7 +92,11 @@ function CartPage() {
             {totalPrice.toFixed(2)} <FormattedMessage id="egp" />
           </span>
         </div>
-        <button className="checkout-btn" onClick={handleCheckout} disabled={cartItems.length === 0}>
+        <button
+          className="checkout-btn"
+          onClick={handleCheckout}
+          disabled={cartItems.length === 0}
+        >
           <FormattedMessage id="confirm_order" />
         </button>
       </footer>

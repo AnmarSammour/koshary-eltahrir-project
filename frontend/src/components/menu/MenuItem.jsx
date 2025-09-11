@@ -20,7 +20,7 @@ function MenuItem({ item, onShowDetails }) {
   };
 
   return (
-    <div className="menu-item-card" onClick={handleShowDetails}>
+    <div className={`menu-item-card${onShowDetails ? " clickable" : " not-clickable"}`} onClick={handleShowDetails}>
       <div className="item-image-container">
         <img src={item.image} alt={item.name} className="item-image" />
         <div className="item-add-corner">
@@ -28,7 +28,7 @@ function MenuItem({ item, onShowDetails }) {
             +
           </button>
         </div>
-        {item.details && (
+        {(item.details && onShowDetails) && (
           <div className="item-details-overlay">
             <button className="details-btn" onClick={handleShowDetails}>
               <FormattedMessage id="details" />

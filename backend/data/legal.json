@@ -1,0 +1,14 @@
+{
+    "privacy-policy": {
+        "title_ar": "سياسة الخصوصية",
+        "title_en": "Privacy Policy",
+        "content_ar": "نحن في كشري التحرير نحترم خصوصيتك ونلتزم بحمايتها. تُستخدم المعلومات التي نجمعها، مثل الاسم ورقم الهاتف والعنوان، فقط لغرض توصيل طلباتك وتحسين خدماتنا. نحن لا نشارك بياناتك الشخصية مع أي أطراف ثالثة دون موافقتك الصريحة، إلا إذا كان ذلك مطلوبًا بموجب القانون. يتم تخزين بياناتك بشكل آمن وتستخدم فقط للأغراض المذكورة.",
+        "content_en": "At Koshary El-Tahrir, we respect your privacy and are committed to protecting it. The information we collect, such as name, phone number, and address, is used solely for the purpose of delivering your orders and improving our services. We do not share your personal data with any third parties without your explicit consent, unless required by law. Your data is stored securely and used only for the stated purposes."
+    },
+    "shipping-returns": {
+        "title_ar": "سياسة الشحن والاسترجاع",
+        "title_en": "Shipping and Returns Policy",
+        "content_ar": "نسعى في كشري التحرير لضمان وصول طلبك في أسرع وقت وبأفضل جودة. يتم توصيل الطلبات خلال الوقت المقدر عند تأكيد الطلب. في حال وجود أي مشكلة في الطلب (مثل منتج خاطئ أو جودة غير مرضية)، يرجى التواصل معنا فورًا عبر أرقام فروعنا. نظرًا لطبيعة منتجاتنا الغذائية، لا يمكن استرجاع الطلبات بعد استلامها وتأكيدها، ولكننا نلتزم بحل أي مشكلة تتعلق بجودة الطلب بما يرضي عملائنا.",
+        "content_en": "At Koshary El-Tahrir, we strive to ensure your order arrives as quickly as possible and in the best quality. Orders are delivered within the estimated time provided upon confirmation. If there is any issue with your order (such as a wrong item or unsatisfactory quality), please contact us immediately through our branch numbers. Due to the nature of our food products, orders cannot be returned after they have been received and confirmed. However, we are committed to resolving any quality-related issues to our customers' satisfaction."
+    }
+}

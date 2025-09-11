@@ -6,7 +6,6 @@
     "powered_by": "مدعم من زيدا®",
     "language_button": "EN",
     "details": "تفاصيل",
-    "currency": "ج.م",
     "egp": "ج.م",
     "item_added_to_cart": "تمت إضافة \"{itemName}\" إلى السلة",
     "koshary_tahrir": "كشري التحرير",
@@ -42,5 +41,8 @@
     "cat_koshary": "الكشري",
     "cat_addons": "الإضافات",
     "cat_drinks": "المشروبات",
-    "cat_desserts": "الحلويات"
+    "cat_desserts": "الحلويات",
+    "powered_bya": "All Rights Reserved.",
+    "developed_by": "تم إعادة تطويره بواسطة {name}",
+    "name_AnmarSammour": "أنمار سمور"
 }

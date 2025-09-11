@@ -1,67 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { useIntl } from 'react-intl'; 
-import { useLocale } from '../../i18n';
-import MenuItem from '../../components/menu/MenuItem';
-import DetailsModal from '../../components/UI/DetailsModal';
-import './CategoryPage.css';
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import { FormattedMessage, useIntl } from "react-intl";
+import MenuItem from "../../components/menu/MenuItem";
+import DetailsModal from "../../components/UI/DetailsModal";
+import "./CategoryPage.css";
 
 const categoryTranslationIds = {
-  "الكشري": "cat_koshary",
-  "الإضافات": "cat_addons",
-  "المشروبات": "cat_drinks",
-  "الحلويات": "cat_desserts"
+  الكشري: "cat_koshary",
+  الإضافات: "cat_addons",
+  المشروبات: "cat_drinks",
+  الحلويات: "cat_desserts",
 };
 
 function CategoryPage() {
-  const { categoryName } = useParams(); 
-  const { locale } = useLocale();
+  const { categoryName } = useParams();
   const intl = useIntl();
-  const [categoryItems, setCategoryItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selected, setSelected] = useState(null);
 
-  const translationId = categoryTranslationIds[categoryName] || categoryName;
-  const pageTitle = intl.formatMessage({ id: translationId });
+  const titleId = categoryTranslationIds[categoryName] || categoryName;
+  const pageTitle = intl.formatMessage({ id: titleId });
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch(`http://localhost:3000/api/menu?lang=${locale}` )
-      .then(res => res.json())
-      .then(data => {
-        const filtered = data.filter(item => item.category === categoryName);
-        setCategoryItems(filtered);
-        setIsLoading(false);
+    setLoading(true);
+    fetch(`http://localhost:3000/api/menu?lang=${intl.locale}`)
+      .then((r) => r.json())
+      .then((data) => {
+        setItems(data.filter((i) => i.category === categoryName));
+        setLoading(false);
       })
-      .catch(error => {
-        console.error("Failed to fetch category items:", error);
-        setIsLoading(false);
-      });
-  }, [categoryName, locale]);
-
-  const handleShowDetails = (item) => setSelectedItem(item);
-  const handleCloseDetails = () => setSelectedItem(null);
+      .catch(() => setLoading(false));
+  }, [categoryName, intl.locale]);
 
   return (
-    <div className="category-page-container">
-      <header className="category-page-header">
-        <Link to="/" className="back-link">
-          <span className="back-arrow">→</span>
+    <div className="category-page">
+      <header className="category-header">
+        <Link
+          to="/"
+          className="back-link"
+          aria-label={intl.formatMessage({ id: "back" })}
+        >
+          {intl.locale === "ar" ? "←" : "→"}
         </Link>
-        <h1>{pageTitle}</h1>
+        <h1 className="category-title">{pageTitle}</h1>
       </header>
-
-      {isLoading ? (
-        <p className="loading-text">{intl.formatMessage({ id: "loading_items" })}</p>
+      {loading ? (
+        <p className="loading">
+          <FormattedMessage id="loading_items" />
+        </p>
       ) : (
-        <div className="category-page-grid">
-          {categoryItems.map(item => (
-            <MenuItem key={item.id} item={item} onShowDetails={handleShowDetails} />
+        <div className="grid">
+          {items.map((item) => (
+            <MenuItem key={item.id} item={item} onShowDetails={setSelected} />
           ))}
         </div>
       )}
-
-      <DetailsModal item={selectedItem} onClose={handleCloseDetails} />
+      <DetailsModal item={selected} onClose={() => setSelected(null)} />
     </div>
   );
 }

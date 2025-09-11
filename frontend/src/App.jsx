@@ -6,6 +6,7 @@ import CategoryPage from "./pages/CategoryPage/CategoryPage.jsx";
 import CartPage from "./pages/CartPage/CartPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.jsx";
 import BranchesPage from "./pages/BranchesPage/BranchesPage.jsx";
+import LegalPage from "./components/LegalPage/LegalPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,9 +17,10 @@ const router = createBrowserRouter([
       { path: "category/:categoryName", element: <CategoryPage /> },
       { path: "cart", element: <CartPage /> },
       { path: "checkout", element: <CheckoutPage /> },
-      { path: "branches", element: <BranchesPage /> }
-    ]
-  }
+      { path: "branches", element: <BranchesPage /> },
+      { path: "/legal/:pageKey", element: <LegalPage /> },
+    ],
+  },
 ]);
 
 function App() {

@@ -1,14 +1,51 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocale } from "../i18n";
-import { useIntl } from "react-intl";
+import "./LanguageSwitcher.css";
 
-export default function LanguageSwitcher() {
+function LanguageSwitcher({ setIsFading }) {
   const { locale, setLocale } = useLocale();
-  const intl = useIntl();
-  const toggle = () => setLocale(locale === "ar" ? "en" : "ar");
+  const [bgStyle, setBgStyle] = useState({});
+  const arRef = useRef(null);
+  const enRef = useRef(null);
+
+  useEffect(() => {
+    const activeRef = locale === "ar" ? arRef : enRef;
+    if (activeRef.current) {
+      setBgStyle({
+        width: `${activeRef.current.offsetWidth}px`,
+        left: `${activeRef.current.offsetLeft}px`,
+      });
+    }
+  }, [locale]);
+
+  const handleLocaleChange = (newLocale) => {
+    if (locale === newLocale) return;
+    setIsFading(true);
+    setTimeout(() => {
+      setLocale(newLocale);
+      setIsFading(false);
+    }, 300);
+  };
+
   return (
-    <button className="action-btn" onClick={toggle} aria-label="Switch language">
-      {intl.formatMessage({ id: "language_button" })}
-    </button>
+    <div className="language-switcher">
+      <div className="active-lang-bg" style={bgStyle}></div>
+      <button
+        ref={arRef}
+        className={`lang-btn ${locale === "ar" ? "active" : "inactive"}`}
+        onClick={() => handleLocaleChange("ar")}
+      >
+        ع
+      </button>
+      <button
+        ref={enRef}
+        className={`lang-btn ${locale === "en" ? "active" : "inactive"}`}
+        onClick={() => handleLocaleChange("en")}
+      >
+        EN
+      </button>
+    </div>
   );
 }
+
+export default LanguageSwitcher;

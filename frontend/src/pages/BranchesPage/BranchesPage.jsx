@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { useLocale } from "../../i18n";
 import "./BranchesPage.css";
 
@@ -9,6 +9,7 @@ function BranchesPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { locale } = useLocale();
+  const intl = useIntl();
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/branches?lang=${locale}`)
@@ -31,7 +32,7 @@ function BranchesPage() {
     <div className="branches-page-container">
       <header className="branches-page-header">
         <Link to="/" className="back-link" aria-label="Back">
-          <span className="back-arrow">→</span>
+          <span className="back-arrow">{intl.locale === "ar" ? "←" : "→"}</span>{" "}
         </Link>
         <h1>
           <FormattedMessage id="branches_title" />

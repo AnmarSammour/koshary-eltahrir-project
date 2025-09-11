@@ -6,7 +6,6 @@
     "powered_by": "Powered by Zayda®",
     "language_button": "ع",
     "details": "Details",
-    "currency": "EGP",
     "egp": "EGP",
     "item_added_to_cart": "\"{itemName}\" added to cart",
     "koshary_tahrir": "Koshary El Tahrir",
@@ -42,5 +41,8 @@
     "cat_koshary": "Koshary",
     "cat_addons": "Add-ons",
     "cat_drinks": "Drinks",
-    "cat_desserts": "Desserts"
+    "cat_desserts": "Desserts",
+    "powered_bya": "All Rights Reserved.",
+    "developed_by": "Redeveloped by {name}",
+    "name_AnmarSammour": "Anmar Sammour"
 }

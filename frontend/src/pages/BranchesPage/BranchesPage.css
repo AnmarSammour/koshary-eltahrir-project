@@ -1,33 +1,59 @@
 .branches-page-container {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 24px 24px;
   box-sizing: border-box;
-  background-color: #f9f9f9;
-  min-height: 100%;
 }
 
 .branches-page-header {
   display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-  border-bottom: 1px solid #f0f0f0;
-  padding-bottom: 16px;
+
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  position: relative;
+  border-bottom: 1px solid #43a047;
 }
 
 .branches-page-header h1 {
   margin: 0;
   font-size: 24px;
-  text-align: center;
   flex-grow: 1;
 }
 
 .back-link {
   text-decoration: none;
 }
+
+.back-link {
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: auto;
+  transform: translateY(-50%);
+  padding: 0 12px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+html[lang="en"] .back-link {
+  left: auto;
+  right: 0;
+}
+
 .back-arrow {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
-  color: #333;
+  color: #22732f;
+  transition: color 0.2s, transform 0.2s;
   line-height: 1;
+}
+
+.back-link:hover .back-arrow {
+  color: #175321;
+  transform: scale(1.2);
 }
 
 .branches-list {
@@ -39,7 +65,7 @@
   background: white;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   border-right: 5px solid #43a047;
 }
 
@@ -57,7 +83,8 @@
   line-height: 1.6;
 }
 
-.loading-text, .error-text {
+.loading-text,
+.error-text {
   text-align: center;
   padding: 40px 0;
   font-size: 16px;

@@ -83,14 +83,15 @@ function CheckoutPage() {
   };
 
   return (
-    <div className="checkout-page-container">
-      <header className="checkout-page-header">
+     <div className="checkout-page-container">
+      <div className="checkout-header-row">
         <Link to="/cart" className="back-link">
-          <span className="back-arrow">→</span>
+          <span className="back-arrow">{locale === "ar" ? "←" : "→"}</span>
         </Link>
-        <h1>{locale === 'en' ? 'Delivery Information' : 'معلومات التوصيل'}</h1>
-      </header>
-
+        <h1 className="checkout-page-title">
+          {locale === 'en' ? 'Delivery Information' : 'معلومات التوصيل'}
+        </h1>
+      </div>
       <form className="checkout-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">{locale === 'en' ? 'Full Name' : 'الاسم الكامل'}</label>

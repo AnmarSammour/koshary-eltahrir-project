@@ -16,6 +16,7 @@ const dataDir = path.join(__dirname, "data");
 const menuFilePath = path.join(dataDir, "menu.json");
 const branchesFilePath = path.join(dataDir, "branches.json");
 const ordersFilePath = path.join(dataDir, "orders.json");
+const legalFilePath = path.join(dataDir, "legal.json");
 
 // --------------------------- Helper Functions ---------------------------
 const readData = (filePath) => {
@@ -24,7 +25,7 @@ const readData = (filePath) => {
     return JSON.parse(data);
   } catch (e) {
     console.error("read error", filePath, e);
-    return [];
+    return null; 
   }
 };
 const writeData = (filePath, data) => {
@@ -37,17 +38,17 @@ const writeData = (filePath, data) => {
 const normalizeLang = (l) => (l === "en" ? "en" : "ar");
 
 const pickLocalized = (obj, lang, base, legacy = base) => {
-  const key = `${base}_${lang}`; 
+  const key = `${base}_${lang}`;
   if (typeof obj[key] === "string" && obj[key].trim()) return obj[key];
   if (typeof obj[legacy] === "string" && obj[legacy].trim()) return obj[legacy];
   return "";
 };
 
 const categoryMap = {
-  "الكشري": { ar: "الكشري", en: "Koshary" },
-  "الإضافات": { ar: "الإضافات", en: "Add-ons" },
-  "المشروبات": { ar: "المشروبات", en: "Drinks" },
-  "الحلويات": { ar: "الحلويات", en: "Desserts" },
+  الكشري: { ar: "الكشري", en: "Koshary" },
+  الإضافات: { ar: "الإضافات", en: "Add-ons" },
+  المشروبات: { ar: "المشروبات", en: "Drinks" },
+  الحلويات: { ar: "الحلويات", en: "Desserts" },
 };
 
 const mapMenuItem = (item, lang) => ({
@@ -56,7 +57,7 @@ const mapMenuItem = (item, lang) => ({
   details: pickLocalized(item, lang, "details"),
   price: item.price,
   image: item.image,
-  category: item.category, 
+  category: item.category,
   categoryLabel:
     (categoryMap[item.category] && categoryMap[item.category][lang]) ||
     item.category,
@@ -75,7 +76,9 @@ const mapBranch = (branch, lang) => ({
 app.get("/api/menu", (req, res) => {
   const lang = normalizeLang(req.query.lang);
   const menu = readData(menuFilePath);
-  const localized = Array.isArray(menu) ? menu.map((m) => mapMenuItem(m, lang)) : [];
+  const localized = Array.isArray(menu)
+    ? menu.map((m) => mapMenuItem(m, lang))
+    : [];
   res.json(localized);
 });
 
@@ -83,7 +86,9 @@ app.get("/api/menu", (req, res) => {
 app.get("/api/branches", (req, res) => {
   const lang = normalizeLang(req.query.lang);
   const branches = readData(branchesFilePath);
-  const localized = Array.isArray(branches) ? branches.map((b) => mapBranch(b, lang)) : [];
+  const localized = Array.isArray(branches)
+    ? branches.map((b) => mapBranch(b, lang))
+    : [];
   res.json(localized);
 });
 
@@ -95,9 +100,7 @@ app.post("/api/orders", (req, res) => {
     const branches = readData(branchesFilePath);
 
     const menuById = new Map(menu.map((m) => [m.id, m]));
-    const branchesByName = new Map(
-      branches.map((b) => [b.name, b])
-    );
+    const branchesByName = new Map(branches.map((b) => [b.name, b]));
 
     const body = req.body || {};
     const originalItems = Array.isArray(body.cartItems) ? body.cartItems : [];
@@ -107,18 +110,22 @@ app.post("/api/orders", (req, res) => {
       return {
         ...ci,
         name: src ? pickLocalized(src, lang, "name") : ci.name,
-        details: src ? pickLocalized(src, lang, "details") : (ci.details || ""),
+        details: src ? pickLocalized(src, lang, "details") : ci.details || "",
       };
     });
 
-    const branchSrc = body.userInfo?.branch ? branchesByName.get(body.userInfo.branch) : null;
-    const localizedBranchName = branchSrc ? pickLocalized(branchSrc, lang, "name") : (body.userInfo?.branch || "");
+    const branchSrc = body.userInfo?.branch
+      ? branchesByName.get(body.userInfo.branch)
+      : null;
+    const localizedBranchName = branchSrc
+      ? pickLocalized(branchSrc, lang, "name")
+      : body.userInfo?.branch || "";
 
     const orders = readData(ordersFilePath);
     const newOrder = {
       orderId: Date.now(),
       orderDate: new Date().toISOString(),
-      lang, 
+      lang,
       userInfo: body.userInfo,
       cartItems: originalItems,
       localizedCartItems,
@@ -129,9 +136,10 @@ app.post("/api/orders", (req, res) => {
     orders.push(newOrder);
     writeData(ordersFilePath, orders);
 
-    const successMsg = lang === "en"
-      ? "Order received and saved successfully!"
-      : "تم استلام الطلب وحفظه بنجاح!";
+    const successMsg =
+      lang === "en"
+        ? "Order received and saved successfully!"
+        : "تم استلام الطلب وحفظه بنجاح!";
 
     res.status(201).json({ message: successMsg, order: newOrder });
   } catch (error) {
@@ -140,11 +148,29 @@ app.post("/api/orders", (req, res) => {
   }
 });
 
+app.get("/api/legal/:pageKey", (req, res) => {
+  const { pageKey } = req.params;
+  const lang = normalizeLang(req.query.lang);
+  const legalData = readData(legalFilePath);
+
+  if (!legalData || !legalData[pageKey]) {
+    return res.status(404).json({ message: "Page not found" });
+  }
+
+  const pageContent = legalData[pageKey];
+  const localizedData = {
+    title: pickLocalized(pageContent, lang, "title"),
+    content: pickLocalized(pageContent, lang, "content"),
+  };
+
+  res.json(localizedData);
+});
+
 // --------------------------- 2. Admin-facing API (CRUD Operations) ---------------------------
 
 // --------------------------- Menu CRUD ---------------------------
 // Add a new item to the list
-  app.post("/api/admin/menu", (req, res) => {
+app.post("/api/admin/menu", (req, res) => {
   const menu = readData(menuFilePath);
   const body = req.body || {};
   const newItem = {
@@ -155,7 +181,7 @@ app.post("/api/orders", (req, res) => {
     details_en: body.details_en || "",
     price: body.price,
     image: body.image,
-    category: body.category, 
+    category: body.category,
   };
   if (!body.name && newItem.name_ar) newItem.name = newItem.name_ar;
   if (!body.details && newItem.details_ar) newItem.details = newItem.details_ar;
@@ -169,7 +195,8 @@ app.put("/api/admin/menu/:id", (req, res) => {
   const menu = readData(menuFilePath);
   const idx = menu.findIndex((i) => i.id === parseInt(req.params.id));
   if (idx === -1) return res.status(404).json({ message: "Item not found" });
-  const ex = menu[idx], b = req.body || {};
+  const ex = menu[idx],
+    b = req.body || {};
   const up = {
     ...ex,
     name_ar: b.name_ar ?? ex.name_ar,
@@ -193,7 +220,8 @@ app.put("/api/admin/menu/:id", (req, res) => {
 app.delete("/api/admin/menu/:id", (req, res) => {
   const menu = readData(menuFilePath);
   const updated = menu.filter((i) => i.id !== parseInt(req.params.id));
-  if (updated.length === menu.length) return res.status(404).json({ message: "Item not found" });
+  if (updated.length === menu.length)
+    return res.status(404).json({ message: "Item not found" });
   writeData(menuFilePath, updated);
   res.json({ message: "Item deleted successfully" });
 });
@@ -223,7 +251,8 @@ app.put("/api/admin/branches/:id", (req, res) => {
   const branches = readData(branchesFilePath);
   const idx = branches.findIndex((i) => i.id === parseInt(req.params.id));
   if (idx === -1) return res.status(404).json({ message: "Branch not found" });
-  const ex = branches[idx], b = req.body || {};
+  const ex = branches[idx],
+    b = req.body || {};
   const up = {
     ...ex,
     name_ar: b.name_ar ?? ex.name_ar,
@@ -240,12 +269,12 @@ app.put("/api/admin/branches/:id", (req, res) => {
   res.json(branches[idx]);
 });
 
-
 // Delete branch
 app.delete("/api/admin/branches/:id", (req, res) => {
   const branches = readData(branchesFilePath);
   const updated = branches.filter((i) => i.id !== parseInt(req.params.id));
-  if (updated.length === branches.length) return res.status(404).json({ message: "Branch not found" });
+  if (updated.length === branches.length)
+    return res.status(404).json({ message: "Branch not found" });
   writeData(branchesFilePath, updated);
   res.json({ message: "Branch deleted successfully" });
 });
