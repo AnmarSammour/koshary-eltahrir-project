@@ -19,7 +19,7 @@ function CheckoutPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/branches?lang=${locale}`)
+    fetch(`https://koshary-eltahrir-project-1.onrender.com/api/branches?lang=${locale}`)
       .then(res => res.json())
       .then(data => setBranches(data))
       .catch(err => console.error("Failed to fetch branches:", err));
@@ -51,7 +51,7 @@ function CheckoutPage() {
     };
 
     try {
-      const response = await fetch(`http://localhost:3000/api/orders?lang=${locale}`, {
+      const response = await fetch(`https://koshary-eltahrir-project-1.onrender.com/api/orders?lang=${locale}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData)

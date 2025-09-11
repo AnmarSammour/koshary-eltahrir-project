@@ -24,7 +24,7 @@ function CategoryPage() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/api/menu?lang=${intl.locale}`)
+    fetch(`https://koshary-eltahrir-project-1.onrender.com/api/menu?lang=${intl.locale}`)
       .then((r) => r.json())
       .then((data) => {
         setItems(data.filter((i) => i.category === categoryName));

@@ -29,7 +29,7 @@ export const CartProvider = ({ children }) => {
     async function relocalize() {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/menu?lang=${locale}`,
+          `https://koshary-eltahrir-project-1.onrender.com/api/menu?lang=${locale}`,
           {
             signal: controller.signal,
           }

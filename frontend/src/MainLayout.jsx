@@ -55,7 +55,7 @@ function MainLayout() {
 
   useEffect(() => {
     if (!isFading) {
-      fetch(`http://localhost:3000/api/menu?lang=${locale}`)
+      fetch(`https://koshary-eltahrir-project-1.onrender.com/api/menu?lang=${locale}`)
         .then((res) => res.json())
         .then((data) => setAllItems(data))
         .catch((error) =>

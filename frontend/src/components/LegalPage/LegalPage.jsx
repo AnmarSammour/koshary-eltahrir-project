@@ -17,7 +17,7 @@ export default function LegalPage() {
   useEffect(() => {
     setIsLoading(true);
     setError(null);
-    fetch(`http://localhost:3000/api/legal/${pageKey}?lang=${locale}`)
+    fetch(`https://koshary-eltahrir-project-1.onrender.com/api/legal/${pageKey}?lang=${locale}`)
       .then((res) => {
         if (!res.ok)
           return res.json().then((e) => {

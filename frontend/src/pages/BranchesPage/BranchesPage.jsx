@@ -12,7 +12,7 @@ function BranchesPage() {
   const intl = useIntl();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/branches?lang=${locale}`)
+    fetch(`https://koshary-eltahrir-project-1.onrender.com/api/branches?lang=${locale}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch branches");
         return res.json();
