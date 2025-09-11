@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/koshary-eltahrir-project/static/css/main.50135724.css",
+    "main.js": "/koshary-eltahrir-project/static/js/main.753d2752.js",
+    "static/media/background.jpeg": "/koshary-eltahrir-project/static/media/background.3b725b7275ae1cf7a176.jpeg",
+    "index.html": "/koshary-eltahrir-project/index.html",
+    "main.50135724.css.map": "/koshary-eltahrir-project/static/css/main.50135724.css.map",
+    "main.753d2752.js.map": "/koshary-eltahrir-project/static/js/main.753d2752.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50135724.css",
+    "static/js/main.753d2752.js"
+  ]
+}
