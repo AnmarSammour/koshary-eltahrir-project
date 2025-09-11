@@ -42,7 +42,6 @@ body {
 
 .menu-content {
   flex-grow: 1;
-  padding: 24px;
 }
 
 .image-pane {
@@ -61,22 +60,24 @@ body {
 
 .top-controls {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 10px;
+  left: 10px;
   display: flex;
   align-items: center;
   background-color: #ffffff;
-  padding: 5px;
-  border-radius: 50px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 2px 8px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
   border: 1px solid #f0f0f0;
   z-index: 10;
+  min-height: 28px;
+  min-width: 74px;
   transition: all 0.3s ease;
 }
 
 .main-container.ltr .top-controls {
   left: auto;
-  right: 20px;
+  right: 10px;
 }
 
 .action-btn {
@@ -142,4 +143,20 @@ body {
     height: 40vh;
     order: 1;
   }
+
+  .image-pane {
+    height: 20%;
+  }
+
+    .top-controls {
+    left: auto !important;
+    right: 10px !important;
+  }
+  .main-container.ltr .top-controls {
+    right: 10px !important;
+  }
+  .main-container.rtl .top-controls {
+    right: 10px !important;
+  }
+
 }

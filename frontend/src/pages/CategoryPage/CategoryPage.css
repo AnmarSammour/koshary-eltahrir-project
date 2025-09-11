@@ -1,64 +1,69 @@
 .category-page {
-    padding: 0 24px;
+    padding: 0 8px;
 }
 
 .category-header {
     display: flex;
     position: relative;
-    margin-bottom: 32px;
-    padding: 0 16px;
-    border-bottom: 2px solid #2E7D32;
+    margin-bottom: 14px;
+    padding: 0 6px;
+    border-bottom: 1px solid #2E7D32;
 }
 
 .back-link {
     position: absolute;
-    left: 16px;
-    font-size: 24px;
+    left: 6px;
+    font-size: 30px;
     text-decoration: none;
     color: #2E7D32;
     transition: transform 0.2s;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
+}
+
+.back-link:hover {
+    color: #175321;
 }
 
 html[lang="en"] .back-link {
     left: auto;
-    right: 16px;
+    right: 6px;
 }
 
 .category-title {
-    font-size: 24px;
-    font-weight: 800;
+    font-size: 1.6rem;
+    font-weight: 900;
     color: #2E7D32;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.6px;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
+
 }
 
 .loading {
     text-align: center;
     color: #666;
-    padding: 40px 0;
+    padding: 18px 0;
     font-style: italic;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 6px;
 }
 
 @media (max-width: 480px) {
     .category-page {
-        padding: 16px;
+        padding: 6px;
     }
 
     .back-link {
-        left: 12px;
-        font-size: 20px;
+        left: 5px;
+        font-size: 12px;
     }
 
     .grid {
-        gap: 12px;
+        gap: 4px;
     }
 }
