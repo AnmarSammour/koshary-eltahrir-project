@@ -8,20 +8,25 @@ import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.jsx";
 import BranchesPage from "./pages/BranchesPage/BranchesPage.jsx";
 import LegalPage from "./components/LegalPage/LegalPage.jsx";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: [
+        { index: true, element: <HomePage /> },
+        { path: "category/:categoryName", element: <CategoryPage /> },
+        { path: "cart", element: <CartPage /> },
+        { path: "checkout", element: <CheckoutPage /> },
+        { path: "branches", element: <BranchesPage /> },
+        { path: "/legal/:pageKey", element: <LegalPage /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      { index: true, element: <HomePage /> },
-      { path: "category/:categoryName", element: <CategoryPage /> },
-      { path: "cart", element: <CartPage /> },
-      { path: "checkout", element: <CheckoutPage /> },
-      { path: "branches", element: <BranchesPage /> },
-      { path: "/legal/:pageKey", element: <LegalPage /> },
-    ],
-  },
-]);
+    basename: "/koshary-eltahrir-project",
+  }
+);
 
 function App() {
   return (
